@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [Prerequisites](prerequisites.md)
-  * [Webpack setup](/webpack-setup.md)
+  * [Webpack setup](webpack-setup.md)
   * [Eslint](eslint.md)
 * [Configuration](configuration.md)
   * [Adding TypeScript](adding-typescript.md)
