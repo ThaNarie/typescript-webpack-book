@@ -7,9 +7,27 @@ So the only thing that the TypeScript compiler does, is compile-time type-checki
 We start by moving the babel loader config into a function so we can use them for both loaders:
 
 ```js
-const getBabelLoader = buildOption => (
-
+const getBabelLoader = () => (
+  {
+    loader :'babel-loader',
+    options: {
+      presets: [['es2015', { "modules": false }]],
+      plugins: [
+        'transform-runtime',
+        'transform-class-properties',
+        'transform-object-rest-spread',
+        'transform-strict-mode',
+        ["babel-plugin-transform-builtin-extend", {
+          globals: ["Error", "Array"]
+        }],
+        'transform-es2015-destructuring',
+        'transform-es2015-parameters'
+      ],
+      cacheDirectory: ''
+    }
+  }
+);
 ```
 
-
+The we update the `.js` rule and add the `.ts` rule:
 
