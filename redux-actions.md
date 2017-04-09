@@ -103,5 +103,44 @@ const scrollManagerReducer = handleActions<State, CombinedPayloads>({
 }, initialState);
 ```
 
+The individual reducer functions will be explained below. The first handles the action without any payload, which is straightforward:
+
+```js
+// input state is handled by the handleActions generic, so only type the output state
+[CLEAR_SCROLL_TO]: (state):State => ({
+  ...state,
+  scrollTo: [],
+}),
+```
+
+The following case also types the action:
+
+```js
+// type the action parameter explicitly (since the generic uses the CombinedPayloads)
+// the destructuring of action now gets type information
+[SCROLL_TO]: (state, { payload }: Action<ScrollToPayload>): State => ({
+  ...state,
+  scrollTo: [
+    ...state.scrollTo,
+    payload,
+  ],
+}),
+```
+
+When destructuring more, we might want to break it over multiple lines:
+
+```js
+[REGISTER_FIXED_HEADER_ELEMENT]: (
+  state,
+  { payload: { elementName, bottomY } }: Action<RegisterFixedHeaderElementPayload>,
+): State => ({
+  ...state,
+  fixedHeaderElements: {
+    ...state.fixedHeaderElements,
+    [elementName]: bottomY,
+  },
+}),
+```
+
 
 
