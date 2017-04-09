@@ -35,5 +35,20 @@ To configure TSLint we will add a `tslint.json`
 }
 ```
 
+To use the linting in our build script or git hooks we have set up a npm script:
+
+```js
+// package.json
+{
+    "scripts" {
+        "lint:ts": "tslint \"src/**/*.ts\" -t stylish --type-check -p ./tsconfig.json -e \"node_modules/**/*.ts\" -e \"**/*.d.ts\"",
+    }
+}
+```
+
+With the `-t stylish` we match the output to ESLint, with `--typecheck` and `-p ./tsconfig.json` we add typeschecking to the linter, and with the `-e` flags we exclude patterns that we don't want to have linted. Unfortunately TSLint doesn't have a replacement for `.eslintignore` yet.
+
+After this setup we can enable TSLint in our IDE, and run `npm run lint:ts` from the command-line to test our setup.
+
 
 
