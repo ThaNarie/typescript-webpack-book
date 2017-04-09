@@ -2,8 +2,8 @@
 
 * [Introduction](README.md)
 * [Prerequisites](prerequisites.md)
-  * [Webpack setup](/chapter1.md)
-  * [Eslint](eslint.md)
+  * [Webpack setup](//chapter1.md)
+* * [Eslint](eslint.md)
 * [Configuration](configuration.md)
   * [Adding TypeScript](adding-typescript.md)
   * [Updating Webpack](updating-webpack.md)
