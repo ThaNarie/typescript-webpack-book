@@ -73,3 +73,5 @@ npm i -D awesome-typescript-loader
 
 We configure the awesome-typescript-loader to use the `tsconfig.json` in the root of our project.
 
+When we want to import our TypeScript files without specifying an extension \(like we do with our JavaScript files\), we also have to update the Webpack resolve configuration:
+
