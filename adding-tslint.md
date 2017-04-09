@@ -14,3 +14,26 @@ npm i -D tslint tslint-config-airbnb
 
 The `tslint-config-airbnb` preset will mimic the ESLint airbnb config as closely as possible with the TSLint rules that are available, which is a perfect starting point to make JavaScript and TypeScript linting as similar as possible.
 
+To configure TSLint we will add a `tslint.json`
+
+```js
+// tslint.json
+{
+  "extends": [
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    // This rule mixes up the JS Array() and TS Array<string>
+    "prefer-array-literal": [ true, { "allow-type-parameters": true } ],
+    // We might disable this rule in the future when too much custom maps are included
+    "import-name": [ true, { "react": "React", "debug": "debugLib" }],
+    // Doesn't take strings into account like ESlint does
+    "max-line-length": [ false ],
+    // We often pass references to Classes around that need to start with an uppercase
+    "variable-name": [ true, "allow-pascal-case" ]
+  }
+}
+```
+
+
+
