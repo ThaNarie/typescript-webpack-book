@@ -1,8 +1,6 @@
 # Webpack setup
 
-Before we start integrating typescript, we will explain the current webpack setup we have for transpiling our JavaScript files with babel. It won't go into detail about all the other webpack parts, only the relevant bits related to JavaScript.
-
-
+Before we start integrating typescript, we will explain the current webpack setup we have for transpiling our JavaScript files with babel.
 
 ```js
 // webpack resolve config
@@ -12,8 +10,6 @@ resolve : {
 ```
 
 The above will tell webpack to look for files with those extensions when importing a path without an extension.
-
-
 
 ```js
 // webpack module config
@@ -48,6 +44,4 @@ module: {
 ```
 
 The above will enable the `babel-loader` for files with the `.js` extension, and pass along some options to babel.
-
-
 
