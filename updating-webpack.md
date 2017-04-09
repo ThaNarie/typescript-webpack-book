@@ -31,3 +31,45 @@ const getBabelLoader = () => (
 
 The we update the `.js` rule and add the `.ts` rule:
 
+```js
+// webpack module config
+module: {
+  rules: [
+    {
+      test: /\.js$/,
+      include: [
+        /src/,
+      ],
+      use: [getBabelLoader()],
+    },
+  ],
+  rules: [
+    {
+      test: /\.ts$/,
+      include: [
+        /src/,
+      ],
+      use: [
+        getBabelLoader(),
+        {
+          loader: 'awesome-typescript-loader',
+          options: {
+            silent: true,
+            configFileName: path.resolve(__dirname, '../../../tsconfig.json')
+          }
+        }
+      ],
+    },
+  ],
+
+},
+```
+
+For that to work we need to install the `awesome-typescript-loader`:
+
+```shell
+npm i -D awesome-typescript-loader
+```
+
+We configure the awesome-typescript-loader to use the `tsconfig.json` in the root of our project.
+

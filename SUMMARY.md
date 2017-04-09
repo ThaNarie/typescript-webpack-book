@@ -6,4 +6,5 @@
   * [Eslint](eslint.md)
 * [Adding TypeScript](adding-typescript.md)
 * [Updating Webpack](updating-webpack.md)
+* Configuration
 
