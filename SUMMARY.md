@@ -8,5 +8,7 @@
   * [Adding TypeScript](adding-typescript.md)
   * [Updating Webpack](updating-webpack.md)
   * [Adding TSLint](adding-tslint.md)
-* [Update ESLint](update-eslint.md)
+  * [Update ESLint](update-eslint.md)
+
+
 
