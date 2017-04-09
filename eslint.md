@@ -40,7 +40,28 @@ Your `.eslintrc` file might look something like this:
 }
 ```
 
-The parser key tells eslint to use the babel parser, since we are using stage 3 of 4 plugins that haven't made it in the spec yet, and are not supported by the eslint parser itself.
+The `parser` key tells eslint to use the babel parser, since we are using stage 3 of 4 plugins that haven't made it in the spec yet, and are not supported by the eslint parser itself.
 
-The import/resolver part tells the eslint import plugin to use webpack to resolve imports, so it can properly display errors, without false positives, when imports are wrong.
+The `import/resolver` part tells the eslint import plugin to use webpack to resolve imports, so it can properly display errors, without false positives, when imports are wrong.
+
+We also have an `.eslintignore` file to exclude things we don't want to have linted:
+
+```
+build/**
+scripts/**
+node_modules/**
+```
+
+To use the linting in our build script or git hooks we have set up a npm script:
+
+```js
+// package.json
+{
+    "scripts" {
+        "lint:js": "eslint .",
+    }
+}
+```
+
+
 
