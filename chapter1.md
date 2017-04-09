@@ -45,3 +45,15 @@ module: {
 
 The above will enable the `babel-loader` for files with the `.js` extension, and pass along some options to babel.
 
+```js
+plugins: [
+  new webpack.DefinePlugin({
+    'process.env' : {'NODE_ENV': JSON.stringify(dev ? 'development' : 'production')}
+    'WP_DEFINE_IS_NODE': false,
+    'WP_DEFINE_DEVELOPMENT': dev,
+  }
+]
+```
+
+The will set compile time constants that are available in all the files.
+
