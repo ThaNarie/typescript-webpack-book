@@ -10,5 +10,5 @@
   * [Adding TSLint](adding-tslint.md)
   * [Update ESLint](update-eslint.md)
 * [Using TypeScript](using-typescript.md)
-* Installing type definitions
+* [Adding type definitions](installing-type-definitions.md)
 
