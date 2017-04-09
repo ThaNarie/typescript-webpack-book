@@ -7,6 +7,7 @@
 * [Configuration](configuration.md)
   * [Adding TypeScript](adding-typescript.md)
   * [Updating Webpack](updating-webpack.md)
+  * Adding tslint
 
 
 
