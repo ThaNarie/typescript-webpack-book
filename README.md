@@ -4,5 +4,5 @@ Going full-force with TypeScript in projects is awesome, but sometimes it can co
 
 To give developers more freedom I think it's a good idea to support both babel and TypeScript in a single project, where you can just rename any file from `.js` to `.ts` and start adding types.
 
-This book goes into detail about setting up both babel and TypeScript with webpack, how to set up the linting for both files, and other things.
+This book goes into detail about setting up both babel and TypeScript with webpack, how to set up the linting for both filetypes, and other things.
 

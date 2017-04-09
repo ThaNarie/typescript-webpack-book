@@ -1,3 +1,8 @@
-# Table of content
+# Summary
 
-* [First Chapter](chapter1.md)
+* [Introduction](README.md)
+* [Prerequisites](prerequisites.md)
+  * [Webpack setup](chapter1.md)
+
+
+
