@@ -6,6 +6,12 @@ The [redux-actions](https://github.com/acdlite/redux-actions) package contain Fl
 npm i -S redux-actions @types/redux-actions
 ```
 
+## createAction
+
+Wraps an action creator so that its return value is the payload of a Flux Standard Action.
+
+**Note**: The examples below only work with changes proposed in the [following issue](https://github.com/DefinitelyTyped/DefinitelyTyped/issues/15697).
+
 ```js
 import { createAction } from 'redux-actions';
 
@@ -49,6 +55,52 @@ export const registerFixedHeaderElement = createAction<
 
 // usage
 dispatch(registerFixedHeaderElement('fooHeader', 150);
+```
+
+## handleActions
+
+Wraps a reducer so that it only handles Flux Standard Actions of a certain type.
+
+**Note:** There are several ways to use reducers with TypeScript.
+
+* The default `switch/case` has the advantage to reduce some TypeScript boilerplate by incorperating Union Types and Type Guards.
+* The same is possible using `handleActions` \(with some tweaks to the type definitions\), but it requires you to specify the type keys as strings instead of reference the exported action types.
+* This example will showcase the default implementation using this function.
+
+```js
+import {Action, handleActions} from 'redux-actions';
+
+// import the ActionTypes and the typed Payloads
+import {
+  CLEAR_SCROLL_TO,
+  SCROLL_TO,
+  REGISTER_FIXED_HEADER_ELEMENT,
+  UNREGISTER_FIXED_HEADER_ELEMENT,
+  ScrollToPayload,
+  RegisterFixedHeaderElementPayload,
+  UnregisterFixedHeaderElementPayload,
+} from '../actions/scrollActions';
+
+// type the local redux State
+type State = {
+  scrollTo: Array<number>;
+  fixedHeaderElements: {
+    [key: string]: number;
+  };
+};
+
+const initialState = {
+  scrollTo: [],
+  fixedHeaderElements: {},
+};
+
+// add union type for all possible action payloads
+type CombinedPayloads = ScrollToPayload | RegisterFixedHeaderElementPayload | UnregisterFixedHeaderElementPayload;
+
+// create the reducerMap (now empty)
+const scrollManagerReducer = handleActions<State, CombinedPayloads>({
+  [...]: (state, action) => { ... },
+}, initialState);
 ```
 
 
