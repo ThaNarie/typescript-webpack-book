@@ -75,3 +75,12 @@ We configure the awesome-typescript-loader to use the `tsconfig.json` in the roo
 
 When we want to import our TypeScript files without specifying an extension \(like we do with our JavaScript files\), we also have to update the Webpack resolve configuration:
 
+```js
+// webpack resolve config
+resolve : {
+    extensions : ['.ts', '.js', '.json'],
+}
+```
+
+We put `.ts` first because if both a `.js` and a `.ts` file exists we probably want to  use the `.ts` file. If you know you will not have that, you could switch them around to improve resolve performance when you have more JavaScript files in your project than TypeScript files.
+
